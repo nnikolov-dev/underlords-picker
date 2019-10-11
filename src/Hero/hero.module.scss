@@ -1,0 +1,32 @@
+.Hero {
+    color: #ffffff;
+    position: relative;
+    text-align: center;
+    transition: 0.1s ease-in-out;
+    cursor: pointer;
+
+    .Holder {
+        position: absolute;
+        left: 0px;
+        bottom: 4px;
+        padding: 1rem;
+        width: calc(100% - 2rem);
+        background: rgba(0, 0, 0, 0.5);
+        transition: 0.1s ease-in-out;
+    }
+    
+    .Name {
+        text-transform: uppercase;
+    }
+}
+
+.Hero:hover {
+    .Holder {
+        position: absolute;
+        left: 0px;
+        bottom: 4px;
+        padding: 1rem;
+        width: calc(100% - 2rem);
+        background: rgba(0, 0, 0, 0.9);
+    } 
+}
