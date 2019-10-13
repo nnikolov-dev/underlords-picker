@@ -131,9 +131,10 @@
     margin: 1rem;
     .Alliance {
       margin-right: 0.5rem;
+      display: inline-block;
     }
     .Image {
-      min-width: 50px;
+      width: 100%;
       height: auto;
     }
   }
