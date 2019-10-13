@@ -1,32 +1,85 @@
-.Hero {
-    color: #ffffff;
+.Tooltip {
+    width: 5%;
+    margin: 1rem;
+    display: inline-block;
     position: relative;
-    text-align: center;
-    transition: 0.1s ease-in-out;
+    text-align: left;
     cursor: pointer;
+    border-radius: 50%;
 
-    .Holder {
-        position: absolute;
-        left: 0px;
-        bottom: 4px;
-        padding: 1rem;
-        width: calc(100% - 2rem);
-        background: rgba(0, 0, 0, 0.5);
-        transition: 0.1s ease-in-out;
+    .Image {
+        width: 100%;
     }
     
-    .Name {
-        text-transform: uppercase;
+    .Right {
+        min-width: 200px; 
+        top: 50%;
+        left: 120%;
+        margin-left: 0px;
+        transform: translate(0, -50%);
+        padding: 10px 20px;
+        color: #444444;
+        background-color: #EEEEEE;
+        font-weight: normal;
+        font-size: 13px;
+        border-radius: 8px;
+        position: absolute;
+        z-index: 99999999;
+        box-sizing: border-box;
+        box-shadow: 0 1px 8px rgba(0,0,0,0.5);
+        display: none;
+        transition: 0.5s ease-in-out;
+
+        i {
+            position:absolute;
+            top:50%;
+            right:100%;
+            margin-top:-12px;
+            width:12px;
+            height:24px;
+            overflow:hidden;
+        }
+
+        i::after {
+            content:'';
+            position:absolute;
+            width:12px;
+            height:12px;
+            left:0;
+            top:50%;
+            transform:translate(50%,-50%) rotate(-45deg);
+            background-color:#EEEEEE;
+            box-shadow:0 1px 8px rgba(0,0,0,0.5);
+        }
+
     }
+    
 }
 
-.Hero:hover {
+.Tooltip:hover {
+
+    .Right {
+        display:block;
+    }
+    
+}
+
+
+.Hero {
+    transition: 0.1s ease-in-out;
+    cursor: pointer;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
     .Holder {
-        position: absolute;
-        left: 0px;
-        bottom: 4px;
-        padding: 1rem;
-        width: calc(100% - 2rem);
-        background: rgba(0, 0, 0, 0.9);
-    } 
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .Image {
+        border: 1px solid red;
+        width: 10% !important;
+        height: auto;
+        border-radius: 50%;
+    }
 }

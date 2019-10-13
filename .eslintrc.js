@@ -43,6 +43,7 @@ module.exports = {
     "react/jsx-one-expression-per-line": 0,
     "react/jsx-filename-extension": 0,
 
-    "import/extensions": 0
+    "import/extensions": 0,
+    "linebreak-style": 0,
   },
 };
