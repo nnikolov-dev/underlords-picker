@@ -1,5 +1,4 @@
 .Tooltip {
-    width: 5%;
     margin: 1rem;
     display: inline-block;
     position: relative;
@@ -8,7 +7,9 @@
     border-radius: 50%;
 
     .Image {
-        width: 100%;
+        min-width: 70px;
+        max-width: 70px;
+        height: auto;
     }
     
     .Right {
@@ -77,9 +78,24 @@
     }
 
     .Image {
-        border: 1px solid red;
-        width: 10% !important;
+        width: 100%;
         height: auto;
         border-radius: 50%;
+    }
+}
+
+// Small Displays
+@media only screen and (max-width: 768px) {
+    .Tooltip {
+        .Image {
+            min-width: 100px;
+            max-width: 100px;
+            height: auto;
+        }
+    }
+    .Tooltip:hover {
+        .Right {
+            display: none;
+        }
     }
 }

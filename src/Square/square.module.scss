@@ -1,34 +1,4 @@
-.Square {
-    min-width: 100px;
-    min-height: 100px;
-    max-width: 100px;
-    max-height: 100px;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-
-    div {
-        padding: 1.5rem;
-    }
-
-    img {
-        width: 50%;
-        height: auto;
-        border-radius: 50%;
-    }
-
-}
-
-.Selected {
+.Square, .Selected {
     min-width: 100px;
     min-height: 100px;
     max-width: 100px;
@@ -39,6 +9,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 
     div {
         padding: 1.5rem;
@@ -51,6 +24,25 @@
     }
 }
 
+.Square {
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 .Square:Hover {
     border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+// Small Displays
+@media only screen and (max-width: 768px) {
+    .Square, .Selected {
+        min-width: 50px;
+        min-height: 50px;
+        max-width: 50px;
+        max-height: 50px;
+
+        div {
+            padding: 0.5rem;
+        }
+    }
 }
