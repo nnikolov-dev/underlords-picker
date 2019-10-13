@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "./static/css/main.bc8c2247.chunk.css",
+    "main.css": "./static/css/main.acb03d06.chunk.css",
     "main.js": "./static/js/main.4d1adb80.chunk.js",
     "main.js.map": "./static/js/main.4d1adb80.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.8a0c71be.js",
@@ -8,9 +8,9 @@
     "static/js/2.47f78d9c.chunk.js": "./static/js/2.47f78d9c.chunk.js",
     "static/js/2.47f78d9c.chunk.js.map": "./static/js/2.47f78d9c.chunk.js.map",
     "index.html": "./index.html",
-    "precache-manifest.8dbc289fc0f782edbf2456983f822444.js": "./precache-manifest.8dbc289fc0f782edbf2456983f822444.js",
+    "precache-manifest.fcb7c71083e296eb6103b5c48df27df1.js": "./precache-manifest.fcb7c71083e296eb6103b5c48df27df1.js",
     "service-worker.js": "./service-worker.js",
-    "static/css/main.bc8c2247.chunk.css.map": "./static/css/main.bc8c2247.chunk.css.map",
+    "static/css/main.acb03d06.chunk.css.map": "./static/css/main.acb03d06.chunk.css.map",
     "static/media/Assassin.png": "./static/media/Assassin.1ca3d276.png",
     "static/media/Blood-Bound.png": "./static/media/Blood-Bound.fac6a01e.png",
     "static/media/Brawny.png": "./static/media/Brawny.e8be173d.png",
@@ -38,7 +38,7 @@
   "entrypoints": [
     "static/js/runtime-main.8a0c71be.js",
     "static/js/2.47f78d9c.chunk.js",
-    "static/css/main.bc8c2247.chunk.css",
+    "static/css/main.acb03d06.chunk.css",
     "static/js/main.4d1adb80.chunk.js"
   ]
 }
