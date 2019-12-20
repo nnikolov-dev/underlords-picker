@@ -1,0 +1,35 @@
+.Header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #00304B;
+	padding: 1rem 1.5rem;
+
+	.Logo {
+		display: flex;
+		align-items: center;
+
+		.Image {
+			width: 98px;
+			margin-right: 1rem;
+
+			img {
+				max-width: 100%;
+				height: auto;
+				border-radius: 10px;
+			}
+		}
+
+		h2 {
+			font-family: 'Saira Semi Condensed', sans-serif;
+			font-size: 2.5rem;
+			font-weight: normal;
+			font-style: normal;	
+			color: #ffffff;
+		}
+	}
+
+	.Share {
+		min-width: 50%;
+	}
+}

@@ -1,0 +1,18 @@
+.Layout {
+    margin-right: auto;
+    margin-left:  auto;
+    max-width: 80%;
+}
+
+.FullWidth {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+
+// Phones
+@media only screen and (max-width: 768px) {
+    .Layout {
+        padding: 0 1rem;
+        max-width: 100%;
+    }
+}

@@ -2,6 +2,10 @@ import React, {useState} from 'react'
 import styles from './main.module.scss'
 import Hero from '../Hero'
 import Square from '../Square'
+import Layout from '../Layout'
+import Header from '../Header'
+import Heading from '../Heading'
+import Board from '../Board'
 import alliencesData from '../alliences.json'
 
 
@@ -12,11 +16,6 @@ export default () => {
 	const [currentAlliance, setCurrentAlliance] = useState(null)
 	const alliances = []
 	const heroes = []
-
-	// Capitalize
-	const capitalize = (str) => str.charAt(0).toUpperCase() + str.substring(1)
-
-	const getAllianceImg = (alliance) => require(`../images/alliances/${capitalize(alliance)}.png`)
 
 	const countCompleted = (allAlliances) => [...new Set(allAlliances)].map((alliance) => {
 		const progress = []
@@ -83,53 +82,26 @@ export default () => {
 	})
 
 	return (
-		<div className={styles.Main}>
-			<div className={styles.Logo}>
-				{/* Logo */}
-			</div>
-			<div className={styles.Board}>
-				{squares.map(({square, hero}) => <Square id={square} onSelect={handleSquareSelect} hero={hero} selected={selectedHero} />)}
-			</div>
-			<div className={styles.Search}>
-				<div className={styles.Alliances}>
-					<span className={styles.All} onClick={() => (setCurrentAlliance(null))}>All</span>
-					{alliances.map((({name}) => (
-						<img src={getAllianceImg(name)} className={styles.Image} onClick={() => (setCurrentAlliance(name))} />
-					)))}
+		<Layout>
+			<Header />
+			<Heading />
+			<Board data={squares} onSelect={handleSquareSelect} selectedHero={selectedHero} completedAlliances={completedAlliances} />
+			<div className={styles.Main}>
+				<div className={styles.Search}>
+					<div className={styles.Alliances}>
+						{/* <span className={styles.All} onClick={() => (setCurrentAlliance(null))}>All</span>
+						{alliances.map((({name}) => (
+							<img src={getAllianceImg(name)} className={styles.Image} onClick={() => (setCurrentAlliance(name))} />
+						)))} */}
+					</div>
+				</div>
+				<div className={styles.Heroes}>
+					{heroes.map((hero, i) => {
+						if (currentAlliance) { return hero.alliance.includes(currentAlliance) ? <Hero key={i} hero={hero} onSelect={handleHeroSelect} /> : null }
+						return (<Hero key={i} hero={hero} onSelect={handleHeroSelect} />)
+					})}
 				</div>
 			</div>
-			<div className={styles.Heroes}>
-				{heroes.map((hero, i) => {
-					if (currentAlliance) { return hero.alliance.includes(currentAlliance) ? <Hero key={i} hero={hero} onSelect={handleHeroSelect} /> : null }
-					return (<Hero key={i} hero={hero} onSelect={handleHeroSelect} />)
-				})}
-			</div>
-			<div className={styles.Alliances}>
-				{completedAlliances.map(({name, progress}) => (
-					<div className={styles.Alliance}>
-						<div style={{maxWidth: '100px'}}>
-							<img src={getAllianceImg(name)} className={styles.Image} alt={name} />
-						</div>
-						<div className={styles.Progress}>
-							{
-								progress.map((n, i) => (
-									<div className={styles.ProgressBar}>
-										{
-											(n.current / n.max >= 1)
-												// Full
-												? [...Array(progress[progress.length - 1].max / progress.length)].map(() => <div className={styles.Bar} style={{border: ' 1px solid rgba(255, 255, 255, 0.3)'}} />)
-												// Not Full
-												: (i === 0 || (n.current > progress[i - 1].max))
-													? [...Array(i === 0 ? n.current : n.current - (n.max - progress[i - 1].max))].map(() => <div className={styles.Bar} />)
-													: null
-										}
-									</div>
-								))
-							}
-						</div>
-					</div>
-				))}
-			</div>
-		</div>
+		</Layout>
 	)
 }
