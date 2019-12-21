@@ -18,10 +18,10 @@ export default function Hero({hero, onSelect}) {
 	}
 
 	// Getting the image for a hero
-	const getImg = (hero) => require(`../images/heroes/${format(hero)}.jpg`)
+	const getImg = (hero) => require(`../assets/images/heroes/${format(hero)}.jpg`)
 
 	// Getting the image of an alliance
-	const getAlliance = (alliance) => require(`../images/alliances/${capitalize(alliance)}.png`)
+	const getAlliance = (alliance) => require(`../assets/images/alliances/${capitalize(alliance)}.png`)
 
 	const name = format(hero.key).replace(/-/g, ' ')
 

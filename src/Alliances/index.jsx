@@ -17,7 +17,7 @@ Bar.defaultProps = {
 const Alliances = ({completedAlliances}) => {
 	// Capitalize
 	const capitalize = (str) => str.charAt(0).toUpperCase() + str.substring(1)
-	const getAllianceImg = (alliance) => require(`../images/alliances/${capitalize(alliance)}.png`)
+	const getAllianceImg = (alliance) => require(`../assets/images/alliances/${capitalize(alliance)}.png`)
 	return (
 		<div className={styles.Alliances}>
 			{completedAlliances.map(({name, progress}) => {

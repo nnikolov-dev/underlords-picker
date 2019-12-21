@@ -24,7 +24,6 @@ export default () => {
 			const max = l.unitcount
 			progress.push({current, max})
 		})
-		console.log({name: alliance, progress})
 		return {name: alliance, progress}
 	})
 
@@ -82,8 +81,8 @@ export default () => {
 	})
 
 	return (
-		<Layout>
-			<Header />
+		<>
+			<Header squares={squares} />
 			<Heading />
 			<Board data={squares} onSelect={handleSquareSelect} selectedHero={selectedHero} completedAlliances={completedAlliances} />
 			<div className={styles.Main}>
@@ -95,13 +94,16 @@ export default () => {
 						)))} */}
 					</div>
 				</div>
-				<div className={styles.Heroes}>
-					{heroes.map((hero, i) => {
-						if (currentAlliance) { return hero.alliance.includes(currentAlliance) ? <Hero key={i} hero={hero} onSelect={handleHeroSelect} /> : null }
-						return (<Hero key={i} hero={hero} onSelect={handleHeroSelect} />)
-					})}
-				</div>
+				<Layout>
+					<h1>Heroes</h1>
+					<div className={styles.Heroes}>
+						{heroes.map((hero, i) => {
+							if (currentAlliance) { return hero.alliance.includes(currentAlliance) ? <Hero key={i} hero={hero} onSelect={handleHeroSelect} /> : null }
+							return (<Hero key={i} hero={hero} onSelect={handleHeroSelect} />)
+						})}
+					</div>
+				</Layout>
 			</div>
-		</Layout>
+		</>
 	)
 }
