@@ -1,23 +1,14 @@
 .Heading {
+	display: flex;
+	align-items: flex-end;
 	width: 100%;
-	position: relative;
-
-	.Image {
-		min-width: 100%;
-		object-fit: none;
-		max-height: 300px;
-
-		img {
-			object-fit: cover;
-			min-width: 100%;
-			max-height: inherit;
-		}
-	}
+	background-attachment: scroll;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 500px;
 
 	.Text {
-		position: absolute;
-		bottom: 0;
-		left: 0;
 		width: 100%;
 		background: rgba(0, 0, 0, 0.8);
 		display: flex;

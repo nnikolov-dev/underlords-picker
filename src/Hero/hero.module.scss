@@ -1,15 +1,31 @@
 .Tooltip {
     margin: 1rem;
-    display: inline-block;
     position: relative;
     text-align: left;
     cursor: pointer;
     border-radius: 50%;
 
-    .Image {
-        min-width: 70px;
-        max-width: 70px;
-        height: auto;
+    .Hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.5);
+        padding-bottom: 0.5rem;
+        color: #ffffff;
+        border-radius: 5px;
+        font-family: 'Saira Semi Condensed', sans-serif;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 1.5rem;
+
+
+        .Image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 0.5rem;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
     }
     
     .Right {
@@ -25,7 +41,7 @@
         font-size: 13px;
         border-radius: 8px;
         position: absolute;
-        z-index: 99999999;
+        z-index: 5;
         box-sizing: border-box;
         box-shadow: 0 1px 8px rgba(0,0,0,0.5);
         display: none;
@@ -65,23 +81,6 @@
     
 }
 
-
-.Hero {
-    transition: 0.1s ease-in-out;
-    cursor: pointer;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-
-    .Holder {
-        background: rgba(0, 0, 0, 0.5);
-    }
-
-    .Image {
-        width: 100%;
-        height: auto;
-    }
-}
 
 // Small Displays
 @media only screen and (max-width: 768px) {

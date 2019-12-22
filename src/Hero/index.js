@@ -28,8 +28,9 @@ export default function Hero({hero, onSelect}) {
 	if (onSelect) {
 		return (
 			<div className={styles.Tooltip}>
-				<div onClick={(e) => (onSelect(hero))}>
+				<div onClick={(e) => (onSelect(hero))} className={styles.Hero}>
 					<img src={getImg(hero.key)} className={styles.Image} alt="Hero" />
+					{name}
 				</div>
 				<div className={styles.Right}>
 					<h3>{name}</h3>
@@ -46,6 +47,6 @@ export default function Hero({hero, onSelect}) {
 		)
 	}
 	return (
-		<img src={getImg(hero.key)} className={styles.Image} alt={name} />
+		<img src={getImg(hero.key)} alt={name} />
 	)
 }

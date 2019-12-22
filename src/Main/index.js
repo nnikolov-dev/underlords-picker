@@ -1,13 +1,14 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import {useParams} from 'react-router-dom'
+import {Sticky, StickyContainer} from 'react-sticky'
 import styles from './main.module.scss'
 import Hero from '../Hero'
-import Square from '../Square'
 import Layout from '../Layout'
 import Header from '../Header'
 import Heading from '../Heading'
 import Board from '../Board'
 import alliencesData from '../alliences.json'
-
+import TextInput from '../TextInput'
 
 export default () => {
 	const [selectedHero, setSelectedHero] = useState(null)
@@ -16,6 +17,17 @@ export default () => {
 	const [currentAlliance, setCurrentAlliance] = useState(null)
 	const alliances = []
 	const heroes = []
+	const {build} = useParams()
+
+	useEffect(() => {
+		if (build) {
+			try {
+				setSquares(JSON.parse(atob(build)))
+			} catch (err) {
+				console.log(err)
+			}
+		}
+	}, build)
 
 	const countCompleted = (allAlliances) => [...new Set(allAlliances)].map((alliance) => {
 		const progress = []
@@ -54,6 +66,9 @@ export default () => {
 		setHeroSquare(id)
 	}
 
+	const capitalize = (str) => str.charAt(0).toUpperCase() + str.substring(1)
+	const getAllianceImg = (alliance) => require(`../assets/images/alliances/${capitalize(alliance)}.png`)
+
 	Object.keys(alliencesData).forEach((key) => {
 		const alliance = alliencesData[key]
 		key = key
@@ -81,29 +96,56 @@ export default () => {
 	})
 
 	return (
-		<>
-			<Header squares={squares} />
-			<Heading />
-			<Board data={squares} onSelect={handleSquareSelect} selectedHero={selectedHero} completedAlliances={completedAlliances} />
-			<div className={styles.Main}>
-				<div className={styles.Search}>
-					<div className={styles.Alliances}>
-						{/* <span className={styles.All} onClick={() => (setCurrentAlliance(null))}>All</span>
-						{alliances.map((({name}) => (
-							<img src={getAllianceImg(name)} className={styles.Image} onClick={() => (setCurrentAlliance(name))} />
-						)))} */}
+		<Layout style={{backgroundColor: '#2F3D51', boxShadow: '-4px 0px 4px rgba(0, 0, 0, 0.25), 4px 0px 4px rgba(0, 0, 0, 0.25)'}}>
+			<StickyContainer>
+				<Header squares={squares} />
+				<Heading />
+				<Sticky topOffset={650}>
+					{({
+						style,
+						isSticky,
+						wasSticky,
+						distanceFromTop,
+						distanceFromBottom,
+						calculatedHeight
+					}) => (
+						<div className={styles.Board} style={style}>
+							<Board
+								data={squares}
+								onSelect={handleSquareSelect}
+								selectedHero={selectedHero}
+								completedAlliances={completedAlliances}
+							/>
+						</div>
+					)}
+				</Sticky>
+				<div className={styles.Main}>
+					<div className={styles.Search}>
+						<div className={styles.Alliances}>
+							{/* <span className={styles.All} onClick={() => (setCurrentAlliance(null))}>All</span>
+							{alliances.map((({name}) => (
+								<img src={getAllianceImg(name)} className={styles.Image} onClick={() => (setCurrentAlliance(name))} />
+							)))} */}
+						</div>
 					</div>
-				</div>
-				<Layout>
-					<h1>Heroes</h1>
+					<div className={styles.Filter}>
+						<div className={styles.Search}>
+							<TextInput name="Search" />
+						</div>
+						<div className={styles.Alliances}>
+							{alliances.map((({name}) => (
+								<div className={styles.Alliance}><img src={getAllianceImg(name)} className={styles.Image} onClick={() => (setCurrentAlliance(name))} /></div>
+							)))}
+						</div>
+					</div>
 					<div className={styles.Heroes}>
 						{heroes.map((hero, i) => {
 							if (currentAlliance) { return hero.alliance.includes(currentAlliance) ? <Hero key={i} hero={hero} onSelect={handleHeroSelect} /> : null }
 							return (<Hero key={i} hero={hero} onSelect={handleHeroSelect} />)
 						})}
 					</div>
-				</Layout>
-			</div>
-		</>
+				</div>
+			</StickyContainer>
+		</Layout>
 	)
 }

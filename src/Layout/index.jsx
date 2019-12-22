@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './layout.module.scss'
 
-const Layout = ({children, full}) => (
-	<div className={full ? styles.FullWidth : styles.Layout}>{children}</div>
+const Layout = ({children, full, style}) => (
+	<div className={full ? styles.FullWidth : styles.Layout} style={style}>{children}</div>
 )
 
 Layout.propTypes = {
