@@ -1,9 +1,7 @@
 .Tooltip {
     margin: 1rem;
     position: relative;
-    text-align: left;
     cursor: pointer;
-    border-radius: 50%;
 
     .Hero {
         display: flex;
@@ -85,15 +83,6 @@
 // Small Displays
 @media only screen and (max-width: 768px) {
     .Tooltip {
-        .Image {
-            min-width: 100px;
-            max-width: 100px;
-            height: auto;
-        }
-    }
-    .Tooltip:hover {
-        .Right {
-            display: none;
-        }
+        margin: 0.3rem;
     }
 }

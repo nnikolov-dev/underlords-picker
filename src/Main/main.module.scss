@@ -6,6 +6,7 @@
   margin-top: 1rem;
   margin-left: 1rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
     
   .Search {
@@ -15,7 +16,8 @@
   .Alliances {
     display: flex;
     flex-wrap: wrap;
-    margin-left: 3rem;
+    padding-left: 3rem;
+    width: 70%;
 
     .Alliance {
       margin-left: 0.5rem;
@@ -49,39 +51,18 @@ h1 {
 }
 // Small Displays
 @media only screen and (max-width: 768px) {
-  .Main {
-    grid-template-areas: "logo" "board" "alliances" "search" "heroes";
-    padding: 0rem;
-  }
-  .Board {
-    width: 100%;
-    grid-row-gap: 0.5rem;
-    grid-column-gap: 0.5rem;
-  }
-  .Heroes {
-    justify-content: center;
-  }
-  .Alliances {
-    margin: 1rem;
-    .Alliance {
-      margin-right: 0.5rem;
-      display: inline-block;
-    }
-    .Image {
+  .Filter {
+    .Search {
       width: 100%;
-      height: auto;
     }
-  }
-  .Search {
     .Alliances {
       width: 100%;
-      justify-content: center;
+      margin-top: 1rem;
+      padding-left: 0rem;
     }
-    .All {
-      padding: 0.5rem;
-    }
-    .Image {
-      width: 50px;
-    }
+  }
+  .Heroes {
+    padding-top: 1rem;
+    margin-top: 1rem;
   }
 }

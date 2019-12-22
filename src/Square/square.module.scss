@@ -22,24 +22,3 @@
 .Square:Hover {
     box-shadow: inset 0 0 20px #000000;
 }
-
-// Small Displays
-@media only screen and (max-width: 768px) {
-    .Square, .Selected {
-        min-width: 50px;
-        min-height: 50px;
-        max-width: 50px;
-        max-height: 50px;
-
-        div {
-            padding: 0.5rem;
-        }
-
-
-        img {
-            width: 100%;
-            height: auto;
-            border-radius: 0px;
-        }
-    }
-}

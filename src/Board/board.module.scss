@@ -7,7 +7,6 @@
 		display: flex;
 		flex-wrap: wrap;
 		padding: 3rem;
-		// box-sizing: border-box;
 
 		.Squares {
 			flex: 1;
@@ -20,9 +19,37 @@
 		}
 
 		.Alliances {
-			margin-left: 3rem;
 			width: 50%;
+			margin-left: 3rem;
 			height: 30vh;
+		}
+	}
+}
+
+// Small Displays
+@media only screen and (max-width: 768px) {
+	.Board {
+		padding: 1rem;
+		transition: ease-in-out all;
+
+		.BoardInner {
+			padding: 0rem;
+	
+			.Squares {
+				flex: none;
+				display: grid;
+				grid-template-columns: repeat(8, 1fr);
+				grid-template-rows: repeat(4, 1fr);
+				grid-row-gap: 0rem;
+				grid-column-gap: 0rem;
+				width: 100%;
+			}
+	
+			.Alliances {
+				width: 100%;
+				margin-left: 0rem;
+				height: auto;
+			}
 		}
 	}
 }
