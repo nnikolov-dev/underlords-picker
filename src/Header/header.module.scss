@@ -34,3 +34,11 @@
 		min-width: 50%;
 	}
 }
+
+
+// Small Displays
+@media only screen and (max-width: 768px) {
+	.Header {
+		justify-content: center;
+	}
+}
