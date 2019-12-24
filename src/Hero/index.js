@@ -25,12 +25,24 @@ export default function Hero({hero, onSelect}) {
 
 	const name = format(hero.key).replace(/-/g, ' ')
 
+
+	const borderColor = () => {
+		switch (hero.draftTier) {
+		case 1: return 'white'
+		case 2: return 'green'
+		case 3: return 'blue'
+		case 4: return 'purple'
+		case 5: return 'gold'
+		default: return 'transparent'
+		}
+	}
+
 	if (onSelect) {
 		return (
 			<div className={styles.Tooltip}>
-				<div onClick={(e) => (onSelect(hero))} className={styles.Hero}>
+				<div onClick={(e) => (onSelect(hero))} className={styles.Hero} style={{borderColor: borderColor()}}>
 					<img src={getImg(hero.key)} className={styles.Image} alt="Hero" />
-					{name}
+					<span>{name}</span>
 				</div>
 				<div className={styles.Right}>
 					<h3>{name}</h3>

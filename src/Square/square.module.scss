@@ -10,6 +10,7 @@
     transition: 0.1s;
 
     img {
+        max-width: 100%;
         min-width: 100%;
         height: auto;
     }
@@ -17,8 +18,8 @@
 
 .Square {
     cursor: pointer;
-}
 
-.Square:Hover {
-    box-shadow: inset 0 0 20px #000000;
+    &:hover {
+        box-shadow: inset 0 0 20px #000000;
+    }
 }

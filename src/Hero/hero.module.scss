@@ -1,4 +1,6 @@
 .Tooltip {
+    flex: 1;
+    flex-grow: 0;
     margin: 1rem;
     position: relative;
     cursor: pointer;
@@ -11,6 +13,7 @@
         padding-bottom: 0.5rem;
         color: #ffffff;
         border-radius: 5px;
+        border-bottom: 2px solid transparent;
         font-family: 'Saira Semi Condensed', sans-serif;
         font-weight: normal;
         font-style: normal;
@@ -18,11 +21,16 @@
 
 
         .Image {
-            max-width: 100%;
+            min-width: 100%;
             height: auto;
-            margin-bottom: 0.5rem;
             border-top-left-radius: 5px;
             border-top-right-radius: 5px;
+        }
+
+        span {
+            flex: 1;
+            padding: 0.5rem 1rem;
+            text-align: center;
         }
     }
     

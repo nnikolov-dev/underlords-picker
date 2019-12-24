@@ -8,6 +8,8 @@
 
 	.Logo {
 		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
 		align-items: center;
 
 		.Image {
@@ -27,6 +29,7 @@
 			font-weight: normal;
 			font-style: normal;	
 			color: #ffffff;
+			text-align: center;
 		}
 	}
 

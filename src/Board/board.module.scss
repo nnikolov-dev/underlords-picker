@@ -30,18 +30,19 @@
 // Small Displays
 @media only screen and (max-width: 768px) {
 	.Board {
-		padding: 1rem;
+		padding: 1rem 0;
 		transition: ease-in-out all;
 
 		.BoardInner {
-			padding: 0rem;
+			padding: 0;
 			flex-direction: column;
 			flex-wrap: nowrap;
 	
 			.Squares {
 				flex: 0;
 				width: 100%;
-				min-height: 36vh;
+				min-width: 100%;
+				min-height: 20vh;
 			}
 	
 			.Alliances {

@@ -29,6 +29,10 @@ export default () => {
 		}
 	}, build)
 
+	const handleAllianceSelect = (alliance) => () => {
+		setCurrentAlliance(alliance === currentAlliance ? null : alliance	)
+	}
+
 	const countCompleted = (allAlliances) => [...new Set(allAlliances)].map((alliance) => {
 		const progress = []
 		alliances.filter((a) => (a.name === alliance))[0].levels.forEach((l) => {
@@ -120,21 +124,21 @@ export default () => {
 					)}
 				</Sticky>
 				<div className={styles.Main}>
-					<div className={styles.Search}>
-						<div className={styles.Alliances}>
-							{/* <span className={styles.All} onClick={() => (setCurrentAlliance(null))}>All</span>
-							{alliances.map((({name}) => (
-								<img src={getAllianceImg(name)} className={styles.Image} onClick={() => (setCurrentAlliance(name))} />
-							)))} */}
-						</div>
-					</div>
 					<div className={styles.Filter}>
 						<div className={styles.Search}>
 							<TextInput name="Search" />
 						</div>
 						<div className={styles.Alliances}>
 							{alliances.map((({name}) => (
-								<div className={styles.Alliance}><img src={getAllianceImg(name)} className={styles.Image} onClick={() => (setCurrentAlliance(name))} /></div>
+								<div className={styles.Alliance}>
+									<img
+										src={getAllianceImg(name)}
+										className={styles.Image}
+										style={{opacity: currentAlliance === name ? 0.3 : 1}}
+										alt={name}
+										onClick={handleAllianceSelect(name)}
+									/>
+								</div>
 							)))}
 						</div>
 					</div>
